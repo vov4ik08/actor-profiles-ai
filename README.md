@@ -1,12 +1,21 @@
-### Quick start
+# Actor Profile AI
 
-0) Create `.env` (a minimal template is in `.env.example`):
+## Quick start
+
+1) Create `.env` from `.env.example`:
 
 ```bash
 cp .env.example .env
 ```
 
-1) Start the app (build images if needed, install frontend deps, start containers, run migrations):
+2) Set your OpenAI key in `.env` (required before running the app):
+
+```bash
+# .env
+OPENAI_API_KEY=your_key_here
+```
+
+3) Start the app (build images if needed, install frontend deps, start containers, run migrations):
 
 ```bash
 make up
@@ -14,7 +23,7 @@ make up
 
 Open the app: `http://localhost:8080`
 
-### Makefile commands
+## Makefile commands
 
 Run `make help` to see the list in your terminal. The available targets are:
 
@@ -22,6 +31,7 @@ Run `make help` to see the list in your terminal. The available targets are:
 make help
 ```
 
+- **`make env`**: Create `.env` from `.env.example` if missing.
 - **`make up`**: Start containers (build if needed), install frontend deps, start `node`, run migrations.
 - **`make build`**: Build the `app` image.
 - **`make down`**: Stop and remove containers.
@@ -33,9 +43,9 @@ make help
 - **`make migrate`**: Run DB migrations.
 - **`make test`**: Run tests (`php artisan test`).
 
-### Notes
+## Notes
 
-### MySQL settings
+## MySQL settings
 
 By default, `docker-compose.yml` uses:
 
@@ -50,7 +60,7 @@ To make Laravel use MySQL, ensure your `.env` has:
 - `DB_CONNECTION=mysql`
 - `DB_HOST=db`
 
-### OpenAI
+## OpenAI
 
 Environment variables are required (in your host `.env` or exported in your shell — they are passed into the `app` container):
 
@@ -62,4 +72,3 @@ Prompt endpoint check:
 ```bash
 curl http://localhost:8080/api/actors/prompt-validation
 ```
-

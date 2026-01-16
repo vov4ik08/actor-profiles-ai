@@ -1,0 +1,40 @@
+# Keep Docker build context small and avoid leaking secrets.
+
+# VCS
+.git
+.gitignore
+.gitattributes
+
+# Editor/OS noise
+.DS_Store
+.idea
+.vscode
+.zed
+.fleet
+
+# Env / secrets
+.env
+.env.*
+auth.json
+
+# PHP / Laravel
+vendor/
+storage/**
+!storage/.gitignore
+bootstrap/cache/**
+!bootstrap/cache/.gitignore
+.phpunit.result.cache
+.phpunit.cache/
+
+# Frontend
+node_modules/
+public/build/
+public/hot
+
+# Logs & misc
+*.log
+Thumbs.db
+
+# Tests (not needed for image build in this repo setup)
+tests/
+
